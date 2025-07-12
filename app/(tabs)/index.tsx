@@ -36,8 +36,8 @@ export default function Index() {
         }}
         contentContainerClassName="pb-28 px-5"
         ListHeaderComponent={() => ( 
-                <View className="flex-between flex-row w-full my-5">
-        <View className="flex-start">
+        <View className="flex-between flex-row w-full my-5">
+         <View className="flex-start">
           <Text className="small-bold text-primary">
             DELIVER TO
           </Text>
@@ -45,8 +45,8 @@ export default function Index() {
             <Text className="paragraph-bold text-dark-100">America</Text>
             <Image source={images.arrowDown} className="size-3" resizeMode="contain" />
           </TouchableOpacity>
-        </View>
-        <CartButton/>
+            </View>
+            <CartButton/>
       </View>
         )}
         /> 
