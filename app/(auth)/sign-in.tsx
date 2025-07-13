@@ -1,5 +1,6 @@
 import CustomButton from '@/components/CustomButton';
 import CustomInput from '@/components/CustomInput';
+import { signIn } from '@/lib/appwrite';
 import { Link, router } from 'expo-router';
 import React, { useState } from 'react';
 import { Alert, Text, View } from 'react-native';
@@ -7,16 +8,17 @@ const SignIn = () => {
     const [isSubmiting, setIsSubmiting] = useState(false);
     const [form, setForm] = useState({ email: '', password: '' });
     const submit = async () => {
+        const { email, password } = form;
         if (!form.email || !form.password) {
             Alert.alert('Error', 'Please enter email and password!!');
             return;
         }
         setIsSubmiting(true);
         try {
-            Alert.alert('Success', 'User Signed In Successfully!!');
+            await signIn({ email, password });
             router.replace('/');
         } catch (error) {
-            Alert.alert('Error', error.message);
+            Alert.alert('Error', error as string);
         } finally {
             setIsSubmiting(false);
         }
@@ -29,8 +31,8 @@ const SignIn = () => {
                 isLoading={isSubmiting}
                 onPress={submit}
             />
-            <View className='flex justify-center flex-row gap-2'>
-                <Text className='base-regular text-gray-100'>{"Don't have an account?"}</Text>
+            <View className='flex justify-center flex-row'>
+                <Text className='base-regular mx-2 text-gray-100'>{"Don't have an account?"}</Text>
                 <Link href={'/sign-up'} className='base-bold text-primary'>
                     Sign Up
                 </Link>
