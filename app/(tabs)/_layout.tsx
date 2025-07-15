@@ -1,11 +1,69 @@
+import { images } from '@/constants';
 import useAuthStore from '@/store/authStore';
-import { Redirect, Slot } from 'expo-router';
+import { TabBarIconProps } from '@/type';
+import cn from 'clsx';
+import { Redirect, Tabs } from 'expo-router';
 import React from 'react';
+import { Image, Text, View } from 'react-native';
 const TabsLayout = () => {
+  const TabBarIcon = ({ title, icon, focused }: TabBarIconProps) => {
+    return (
+      <View className='tab-icon'>
+        <Image source={icon} className='size-7' resizeMode='contain' tintColor={focused ? '#FE8C00' : '#5D5F6D'} />
+        <Text className={cn('text-sm font-bold', focused ? 'text-primary' : 'text-gray-200')}>{title}</Text>
+      </View>
+    );
+  };
   const { isAuthenticated } = useAuthStore();
   if (!isAuthenticated) {
     return <Redirect href={'/sign-in'}/>;
   }
-  return <Slot />;
+  return (
+    <Tabs screenOptions={{ 
+      headerShown: false,
+      tabBarShowLabel: false,
+      tabBarStyle: {
+        borderRadius: 50,
+        marginHorizontal: 20,
+        height: 80,
+        position: 'absolute',
+        bottom: 10,
+        backgroundColor: 'white',
+        shadowColor: '#1a1a1a',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        elevation: 5,
+      },
+      }}>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ focused }) => <TabBarIcon title="Home" icon={images.home} focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        options={{
+          title: 'Search',
+          tabBarIcon: ({ focused }) => <TabBarIcon title="Search" icon={images.search} focused={focused}/>,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ focused }) => <TabBarIcon title="Profile" icon={images.person}  focused={focused}/>,
+        }}
+      />
+          <Tabs.Screen
+        name="cart"
+        options={{
+          title: 'Cart',
+          tabBarIcon: ({ focused }) => <TabBarIcon title="Profile" icon={images.bag}  focused={focused}/>,
+        }}
+      />
+    </Tabs>
+  );
 };
 export default TabsLayout;
