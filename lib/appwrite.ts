@@ -12,7 +12,12 @@ export const appwriteConfig = {
   projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
   databaseId: process.env.EXPO_PUBLIC_DATABASEID!,
   userCollectionId: process.env.EXPO_PUBLIC_USERCOLLECTIONID!,
-  platform: process.env.EXPO_PUBLIC_PLATFORM!
+  categoriesCollectionId: process.env.EXPO_PUBLIC_CATEGORIESCOLLECTIONID!,
+  menuCollectionId: process.env.EXPO_PUBLIC_MENUCOLLECTIONID!,
+  customizationsCollectionId: process.env.EXPO_PUBLIC_CUSTOMIZATIONSCOLLECTIONID!,
+  menuCustomizationsCollectionId: process.env.EXPO_PUBLIC_MENUCUSTOMIZATIONSCOLLECTIONID!,
+  platform: process.env.EXPO_PUBLIC_PLATFORM!,
+  bucketId: process.env.EXPO_PUBLIC_BUCKETID!,
 };
 export const client = new Client();
 client
