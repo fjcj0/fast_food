@@ -27,7 +27,7 @@ const TabsLayout = () => {
         marginHorizontal: 20,
         height: 80,
         position: 'absolute',
-        bottom: 10,
+        bottom: 20,
         backgroundColor: 'white',
         shadowColor: '#1a1a1a',
         shadowOffset: { width: 0, height: 2 },
@@ -60,7 +60,7 @@ const TabsLayout = () => {
         name="cart"
         options={{
           title: 'Cart',
-          tabBarIcon: ({ focused }) => <TabBarIcon title="Profile" icon={images.bag}  focused={focused}/>,
+          tabBarIcon: ({ focused }) => <TabBarIcon title="Cart" icon={images.bag}  focused={focused}/>,
         }}
       />
     </Tabs>
