@@ -8,7 +8,7 @@ const Filter = ({ categories }: { categories: Category[] }) => {
     const [active, setActive] = useState(searchParams.category || '');
     const handlePress = (id: string) => {
         setActive(id);
-        if (id == 'all') router.setParams({ category: undefined });
+        if (id === 'all') router.setParams({ category: undefined });
         else router.setParams({ category: id });
     };
    const filterData: ({ $id: string; name: string })[] = categories
