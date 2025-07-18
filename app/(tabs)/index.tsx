@@ -1,18 +1,16 @@
 import CartButton from "@/components/CartButton";
 import { images, offers } from "@/constants";
-import useAuthStore from "@/store/authStore";
 import cn from 'clsx';
 import { Fragment } from "react";
 import { FlatList, Image, Pressable, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 export default function Index() {
-  const { user } = useAuthStore();
   return (
     <SafeAreaView className="flex-1 bg-white">
       <FlatList
         data={offers}
         renderItem={({ item, index }) => {
-          const isEven = index % 2 == 0;
+          const isEven = index % 2 === 0;
           return (
             <View>
               <Pressable className={cn('offer-card', isEven ? 'flex-row-reverse' : 'flex-row')}

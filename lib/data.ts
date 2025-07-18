@@ -16,8 +16,7 @@ const dummyData = {
         { name: "Tomatoes", price: 10, type: "topping" },
         { name: "Bacon", price: 30, type: "topping" },
         { name: "Avocado", price: 35, type: "topping" },
-
-        // Sides
+        
         { name: "Coke", price: 30, type: "side" },
         { name: "Fries", price: 35, type: "side" },
         { name: "Garlic Bread", price: 40, type: "side" },

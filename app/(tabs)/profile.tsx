@@ -18,7 +18,7 @@ const Profile: React.FC = () => {
   const { user } = useAuthStore();
   const userData: User[] = user ? [user] : [];
   return (
-    <SafeAreaView className="flex-1 bg-[#F9F9F9] my-12">
+    <SafeAreaView className="flex-1 bg-[#F9F9F9] my-10">
       <FlatList
         data={userData}
         keyExtractor={(_, i) => i.toString()}

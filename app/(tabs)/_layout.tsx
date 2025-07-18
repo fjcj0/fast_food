@@ -49,18 +49,18 @@ const TabsLayout = () => {
           tabBarIcon: ({ focused }) => <TabBarIcon title="Search" icon={images.search} focused={focused}/>,
         }}
       />
+                <Tabs.Screen
+        name="cart"
+        options={{
+          title: 'Cart',
+          tabBarIcon: ({ focused }) => <TabBarIcon title="Cart" icon={images.bag}  focused={focused}/>,
+        }}
+      />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
           tabBarIcon: ({ focused }) => <TabBarIcon title="Profile" icon={images.person}  focused={focused}/>,
-        }}
-      />
-          <Tabs.Screen
-        name="cart"
-        options={{
-          title: 'Cart',
-          tabBarIcon: ({ focused }) => <TabBarIcon title="Cart" icon={images.bag}  focused={focused}/>,
         }}
       />
     </Tabs>
